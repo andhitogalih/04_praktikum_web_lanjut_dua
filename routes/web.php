@@ -6,6 +6,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\KuliahController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MatkulController;
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,8 +22,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Route::get('/home', [HomeController::class, 'index'])->name('dashboard');
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
 Route::get('/kuliah', [KuliahController::class, 'index'])->name('kuliah');
 Route::get('/matkul', [MatkulController::class,'index'])->name ('matkul');
+
+Auth::routes();
+
